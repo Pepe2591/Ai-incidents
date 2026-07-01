@@ -1,2 +1,2 @@
-<h1 color='blue' align='center'>Ai-incidents</h1>
-*Проект для распознования ЧС<i>
+<h1 align="center"> Smart Camera System </h1> 
+<h3 align="center">Which recognize fires, collapses, and explosions</h3>
