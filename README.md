@@ -2,8 +2,8 @@
 <h3 align="center">Which recognize fires, collapses, and explosions</h3>
 
 
-<div> 
-Sending Json files with information about incidents in real time
+<div class="body"> 
+<p></p>Sending Json files with information about incidents in real time</p>
 
 **🎯 Basic functionality:**
 * Fire detection
