@@ -3,7 +3,8 @@
 
 
 <div class="body"> 
-<p><p>Sending Json files with information about incidents in real time</p></p>
+<br>
+<p>Sending Json files with information about incidents in real time</p>
 
 **🎯 Basic functionality:**
 * Fire detection
