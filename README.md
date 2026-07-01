@@ -6,14 +6,14 @@ Sending Json files with information about incidents in real time
 
 
 **🎯 Basic functionality:**
-*Fire detection
-*Collapse detection
-*Explosion detection
+* Fire detection
+* Collapse detection
+* Explosion detection
 
 **💡Areas of application:**
-*Smart City Security Systems
-*Automation of emergency response services
+* Smart City Security Systems
+* Automation of emergency response services
 
 **🛠️ Technology stack:**
-*Django 
-*Django Rest Framework 
+* Django 
+* Django Rest Framework 
