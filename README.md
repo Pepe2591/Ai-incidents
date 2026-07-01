@@ -2,8 +2,8 @@
 <h3 align="center">Which recognize fires, collapses, and explosions</h3>
 
 
+<div> 
 Sending Json files with information about incidents in real time
-
 
 **🎯 Basic functionality:**
 * Fire detection
@@ -17,3 +17,8 @@ Sending Json files with information about incidents in real time
 **🛠️ Technology stack:**
 * Django 
 * Django Rest Framework 
+
+</div>
+
+
+
