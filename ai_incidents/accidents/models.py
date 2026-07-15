@@ -29,8 +29,8 @@ class Frame(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length=100)
-    event_types = models.ManyToManyField('Category', related_name='events')
-    frames = models.ForeignKey('Category', related_name='events', on_delete=models.CASCADE)
+    event_types = models.ManyToManyField('Category', related_name='events_types')
+    frames = models.ForeignKey('Category', related_name='events_frames', on_delete=models.CASCADE)
     video_url = models.TextField()
     priority = models.IntegerField()
     event_status = models.CharField(max_length=60)
