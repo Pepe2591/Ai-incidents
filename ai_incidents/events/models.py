@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-PRIORITY_VALIDATOR = [MinValueValidator(1), MaxValueValidator(3)]
 LONGITUDE_VALIDATORS = [MinValueValidator(-180), MaxValueValidator(180)]
 CONFIDENCE_VALIDATORS = [MinValueValidator(0), MaxValueValidator(1)]
 PRIORITY_VALIDATORS = [MinValueValidator(0), MaxValueValidator(10)]
@@ -39,11 +38,11 @@ class Event(models.Model):
     )
 
     name = models.CharField(max_length=100)
-    event_types = models.CharField(choices=Type.choices)
+    event_type = models.CharField('type', max_length=9, choices=Type.choices)
     
     video_url = models.URLField()
-    priority = models.IntegerField(validators=PRIORITY_VALIDATOR)
-    event_status = models.CharField(Status.choices, default=Status.NEW)
+    priority = models.IntegerField(validators=PRIORITY_VALIDATORS)
+    event_status = models.CharField('status', choices=Status.choices, default=Status.NEW)
     
     desc = models.TextField()
     conf = models.FloatField(validators=CONFIDENCE_VALIDATORS) 
