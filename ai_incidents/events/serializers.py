@@ -22,10 +22,10 @@ class CameraModelSerializer(ModelSerializer):
         return value
     
 
-class Accident(EventsModelSerializer):
+class AccidentModelSerializer(EventsModelSerializer):
     def validate_event_types(self, value): 
-        if not self.Meta.model.objects.filter()
-
+        if not self.Meta.model.objects.filter(value = 'accident').exists(): 
+            return 
 
 
 class FiresModelSerializer(EventsModelSerializer): 
