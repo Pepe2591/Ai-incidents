@@ -3,7 +3,6 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 LONGITUDE_VALIDATORS = [MinValueValidator(-180), MaxValueValidator(180)]
 CONFIDENCE_VALIDATORS = [MinValueValidator(0), MaxValueValidator(1)]
-PRIORITY_VALIDATORS = [MinValueValidator(0), MaxValueValidator(10)]
 
 # Create your models here.
 
@@ -31,18 +30,38 @@ class Event(models.Model):
         EXPLOSION = 'explosion', 'Взрыв'
         FIRE = 'fire', 'Пожар'
 
+    class Priority(models.TextChoices): 
+        "Приоритет события"
+        LOW = 'low', 'Низкий'
+        MEDIUM = 'medium', 'Средний'
+        HIGH = 'high', 'Высокий'
+        CRITICAL = 'critical', 'Критический'
+
+    name = models.CharField(max_length=100)
+
     frames = models.ForeignKey(
         'Frame', 
         related_name='events_frames', 
         on_delete=models.CASCADE
     )
 
-    name = models.CharField(max_length=100)
-    event_type = models.CharField('type', max_length=9, choices=Type.choices)
-    
+    event_type = models.CharField(
+        'type', max_length=9, 
+        choices=Type.choices
+    )
+
+    priority = models.CharField(
+        'priority', 
+        choices=Priority.choices,
+        default=Priority.LOW
+    )
+    event_status = models.CharField(
+        'status', 
+        choices=Status.choices, 
+        default=Status.NEW
+    )
+
     video_url = models.URLField()
-    priority = models.IntegerField(validators=PRIORITY_VALIDATORS)
-    event_status = models.CharField('status', choices=Status.choices, default=Status.NEW)
     
     desc = models.TextField()
     conf = models.FloatField(validators=CONFIDENCE_VALIDATORS) 
