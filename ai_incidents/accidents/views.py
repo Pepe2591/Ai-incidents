@@ -15,7 +15,7 @@ class FiresModelViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = FiresModelSerializer 
 
-class CollapseMidelViewSet(viewsets.ModelViewSet): 
+class CollapseModelViewSet(viewsets.ModelViewSet): 
     queryset = Event.objects.all() 
     serializer_class = CollapseModelSerializer
 
