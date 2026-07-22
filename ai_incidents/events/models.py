@@ -26,7 +26,11 @@ class Event(models.Model):
         FALSE_POSITIVE = 'False_posirive', 'Ложное срабатывание'
     
     class Type(models.TextChoices): 
-        event = 'accident', 'collapse', 'explosion', 'fire'
+        "Тип события"
+        ACCIDENT = 'accident', 'Авария'
+        COLLAPSE = 'collapse', 'Обрушение'
+        EXPLOSION = 'explosion', 'Взрыв'
+        FIRE = 'fire', 'Пожар'
 
     frames = models.ForeignKey(
         'Frame', 
@@ -35,7 +39,7 @@ class Event(models.Model):
     )
 
     name = models.CharField(max_length=100)
-    event_types = models.CharField(Type.event, default=Type.event)
+    event_types = models.CharField(choices=Type.choices)
     
     video_url = models.URLField()
     priority = models.IntegerField(validators=PRIORITY_VALIDATOR)
