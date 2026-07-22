@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'accidents', 
     'collapse', 
     'explosions', 
-    'fires'
+    'fires',
+    'events'
 ]
 
 MIDDLEWARE = [
