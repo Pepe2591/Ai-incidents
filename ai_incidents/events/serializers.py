@@ -20,6 +20,12 @@ class CameraModelSerializer(ModelSerializer):
         if value.strip() == '': 
             raise ValidationError('Name is required')
         return value
+    
+
+class Accident(EventsModelSerializer):
+    def validate_event_types(self, value): 
+        if not self.Meta.model.objects.filter()
+
 
 
 class FiresModelSerializer(EventsModelSerializer): 
