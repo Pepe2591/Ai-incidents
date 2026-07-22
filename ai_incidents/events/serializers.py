@@ -9,9 +9,6 @@ class CameraModelSerializer(ModelSerializer):
         model = Camera 
         fields = '__all__'
 
-    def validate_owner(self, value): 
-        pass
-    
     def validate_id(self, value : int): 
         if not self.Meta.model.objects.filter(id = value).exists(): 
             raise ValidationError('Camera not found')
@@ -24,32 +21,27 @@ class CameraModelSerializer(ModelSerializer):
 
 class AccidentModelSerializer(EventsModelSerializer):
     def validate_event_types(self, value): 
-        if not self.Meta.model.objects.filter(value = 'accident').exists(): 
-            return 
+        if value != 'accident': 
+            raise ValidationError('Event type need "accident"')
+        return value
 
 
 class FiresModelSerializer(EventsModelSerializer): 
 
-    def validate_categorys(self, value : list[Event]): 
-        allowed_events = ['fires', 'smoke']
-        if all(category for category in value if category.name in allowed_events): 
-            return value 
-        else: 
-            raise ValidationError('Invalid event type')
-
+    def validate_event_types(self, value : str): 
+        if value != 'Fires': 
+                raise ValidationError('Event type need "Fires"')
+        return value
 
 class CollapseModelSerializer(EventsModelSerializer): 
-
-    def validate_categorys(self, value : list[Event]): 
-        allowed_events = ['collapse']
-        if all(category for category in value if category.name in allowed_events): 
-            return value 
-        else: 
-            raise ValidationError('Invalid event type')
+    def validate_event_types(self, value : str): 
+        if value != 'collapse': 
+            raise ValidationError('Event type need "accident"')
+        return value
 
 class ExplosionsModelSerializer(EventsModelSerializer): 
 
-    def validate_categorys(self, value : list[Event]): 
+    def alidate_event_types(self, value : str): 
         allowed_events = ['explosions']
         if all(category for category in value if category.name in allowed_events): 
             return value 
